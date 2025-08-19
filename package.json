@@ -11,7 +11,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "postinstall": "npx prisma generate",
+    "postinstall": "npm run prisma:generate",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
@@ -19,9 +19,15 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:generate": "npm run prisma:generate:db1 && npm run prisma:generate:db2",
+    "prisma:generate:db1": "prisma generate --schema=./prisma/schema.prisma",
+    "prisma:migrate:dev:db1": "prisma migrate dev --schema=./prisma/schema.prisma",
+    "prisma:migrate:deploy:db1": "prisma migrate deploy --schema=./prisma/schema.prisma",
+    "prisma:studio:db1": "prisma studio --schema=./prisma/schema.prisma",
+    "prisma:generate:db2": "prisma generate --schema=./prisma/schema2.prisma",
+    "prisma:migrate:dev:db2": "prisma migrate dev --schema=./prisma/schema2.prisma",
+    "prisma:migrate:deploy:db2": "prisma migrate deploy --schema=./prisma/schema2.prisma",
+    "prisma:studio:db2": "prisma studio --schema=./prisma/schema2.prisma"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.10",
