@@ -1,8 +1,8 @@
 {
   "name": "api",
   "version": "0.0.1",
-  "description": "A NestJS API",
-  "author": "",
+  "description": "A simple NestJS API with Prisma for database access.",
+  "author": "akasom-creator",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
